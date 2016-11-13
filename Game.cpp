@@ -6,11 +6,15 @@ Game::Game()
 
 void Game::gameLoop()
 {
-	sf::RenderWindow win(sf::VideoMode(width, height), "TPC");
-
+	ImageManagement::PlayerSheets im;
+	im.loadPlayerSheet();
+	
 	while (win.isOpen())
-	{
-		sf::Event event;
+	{	
+		// completely wipe the frame of all images
+		win.clear();
+
+	sf::Event event;
 		// handles all events that occured since last iteration of the frame eg. mouse clicks
 		while (win.pollEvent(event))
 		{
@@ -19,8 +23,10 @@ void Game::gameLoop()
 			// if a key was pressed...
 			if (event.type == sf::Event::KeyPressed)
 			{
-				
+				pw.playerWalk();
 			}
 		}
 	}
+
+	d.updatePlayer();
 }

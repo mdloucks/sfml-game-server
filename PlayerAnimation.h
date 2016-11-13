@@ -13,13 +13,12 @@ public:
 	PlayerAnimation();
 	~PlayerAnimation();
 
-	
-
 	class PlayerWalking
 	{
 	public:
 		ImageManagement::PlayerSheets im;
 		Player::PlayerStats ps;
+		Player::PlayerConditions pc;
 
 		unsigned short walkCount = 0;
 

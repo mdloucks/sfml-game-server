@@ -1,19 +1,23 @@
 #pragma once
-#include "SFML\Graphics.hpp"
+#include "SFML\Window.hpp"
 #include "PlayerAnimation.h"
+#pragma once
+#include "Drawing.h"
 /*
 MAIN CLASS
 */
+const unsigned short width = 500;
+const unsigned short height = 500;
+
+sf::RenderWindow win(sf::VideoMode(width, height), "TPC");
+
 class Game
 {
 public:
 	Game();
 
-	const unsigned short width = 500;
-	const unsigned short height = 500;
-
-	
-	
+	PlayerAnimation::PlayerWalking pw;
+	Drawing d;
 	/*
 	main game loop which houses the most important parts of the game
 	audio - tries to play audio in sync with in game events

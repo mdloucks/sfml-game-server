@@ -1,24 +1,14 @@
 #pragma once
+#pragma once
 #include "Game.h"
-
-class Drawing : public Game
+/*
+responsible for drawing and displaying graphics
+the screen is cleared in the beginning of the game loop
+*/
+class Drawing
 {
 public:
-	
-
-	class DrawMap
-	{
-
-	};
-
-	class DrawPlayer
-	{
-		void updatePlayer();
-	};
-
-	class DrawEnemies
-	{
-
-	};
+		static void updatePlayer();
+		~Drawing();
 };
 

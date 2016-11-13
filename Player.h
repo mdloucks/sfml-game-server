@@ -12,7 +12,7 @@ public:
 	public:
 		int hp = 100;
 		int atk = 15;
-		float spd = 0.1;
+		double spd = 0.1;
 	};
 	class PlayerConditions {
 	public:

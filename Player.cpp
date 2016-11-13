@@ -15,10 +15,11 @@ bool Player::PlayerConditions::getIsImmobile()
 {	
 	if (ic.isFrozen || ic.isRooted || ic.isStunned || ic.isDead)
 	{
-		return true;
+		isImmobile = true;
 	}
 	else
 	{
-		return true;
+		isImmobile = false;
 	}
+	return isImmobile;
 }

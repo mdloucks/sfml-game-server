@@ -14,7 +14,7 @@ void PlayerAnimation::PlayerWalking::playerWalk()
 	// im.getPlayerSheet.setTextureRect(sf::IntRect(c, 512 + c, c + 64, 576 + c)); 
 	// if the player can move... update him
 
-	if (Player::PlayerConditions::getIsImmobile == false)
+	if (pc.getIsImmobile())
 	{
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
