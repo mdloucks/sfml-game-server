@@ -1,42 +1,23 @@
 #pragma once
 #include "SFML\Graphics.hpp"
-#include "Player.h"
-#include "ImageManagement.h"
-/*
-this class is used to animate the players movement, abilities, and other actions
-It will send the finished sprite to the Drawing class where it will be drawn.
-*/
+#include <iostream>
 class PlayerAnimation
 {
 public:
 	
+	sf::Sprite spr_player_walk;
+	sf::Texture txt_player_walk;
+
+	sf::Sprite spr_player_dead;
+	sf::Texture txt_player_dead;
+
+	int spd = 10;
+
+	int count = 0;
+
 	PlayerAnimation();
+	void loadPlayerImage();
+	void movePlayer();
 	~PlayerAnimation();
-
-	class PlayerWalking
-	{
-	public:
-		ImageManagement::PlayerSheets im;
-		Player::PlayerStats ps;
-		Player::PlayerConditions pc;
-
-		unsigned short walkCount = 0;
-
-		void playerWalk();
-	};
-	/*
-	class that handles players drawn if they are under a condition
-	*/
-	class PlayerCondition
-	{
-		//impairment
-		void drawFrozen();
-		void drawRooted();
-		void drawDead();
-		void drawStunned();
-		// dot
-		void drawIgnited();
-		void drawPoisoned();
-		void drawBleeding();
-	};
 };
+
