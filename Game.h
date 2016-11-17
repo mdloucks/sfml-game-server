@@ -1,7 +1,11 @@
 #pragma once
 
 #include "SFML\Graphics.hpp"
-#include "PlayerAnimation.h"
+#include "ImageManagement.h"
+#include "Entity.h"
+#include "Player.h"
+#include "Projectile.h"
+#include <vector>
 #include <iostream>
 
 /*
@@ -20,7 +24,10 @@ public:
 	Game();
 	//window allocated on the heap
 	sf::RenderWindow *win = new sf::RenderWindow;
-	PlayerAnimation pa;
+	ImageManagement im;
+	Projectile projectile;
+
+	Player player;
 	//window func
 	void winInit();
 	void gameLoop();
