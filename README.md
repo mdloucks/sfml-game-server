@@ -1,13 +1,11 @@
 # sfml-game-server
 
-A sweet 2D game made using sfml, a open source graphics library.
+This is the server portion which will actually host and run the game.
 
-Ideas:
+If you'd like to see what cool graphics the end user will see, heres the link.
+ </br> https://github.com/BroManSalaam/sfml-game-client
 
-2d, lightweight, mobile online battle arena style game that features iconic people/things from history a heroes
-2d, RPG with lots of referances to geeky stuff! 
-
-Care to play? There is a pre-compiled executable in the project
+Care to run this? There is a pre-compiled executable in the project
 
 Care to test it? Follow the steps below.
 
