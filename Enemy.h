@@ -3,6 +3,8 @@
 #include "Player.h"
 #include <math.h>
 #include <iostream>
+#include <vector>
+#include <unistd.h>
 /*
 This base class will host many basic types of enemies
 This will house basic stats and functions that all enemies will use
@@ -10,56 +12,47 @@ This will house basic stats and functions that all enemies will use
 class Enemy : public Entity
 {
 public:
-	Enemy();
+	Enemy(sf::Texture &t,
+	int textX, int textY, int width, int height, int x, int y);
 
 	
 	// 1up 2left 3down 4right
 	
 	//counter for loop animation
 	
-
 	bool isAggro;
 
 	sf::CircleShape Aggro_Radius;
+	sf::CircleShape atk_range;
 
-	enum AI { ENEMY_MELEE};
-	AI currentAI = ENEMY_MELEE;
 	/*
 	if (rect.x - Radius.x)^2 + (rect.y - Radius.y)^2 < radius^2
 	*/
-	bool isInAggroRadius();
-	void updateAggroRadiusPosition();
-	void updateSpritePosition();
-	void initPointers(Player *p);
+	void isInAggroRadius();
+	void update();
+	void attack();
+	void initPointers(Player p);
 
-	virtual void enemyAI();
+	void enemyAI();
 
-	int getHp();
-	int getAtk();
-	int getDef();
-	int getSpd();
-
-	Player *ptr_Player;
-	
-	~Enemy();
-
-private:
-
-	
-
-
-
-protected:
-
-	int WalkCount = 0;
-
-	float spd = 1;
+	float spd = 0.1;
 	int hp;
 	int atk;
 	int def;
+	int atk_spd;
 
 
 	int Direction;
 	
+	~Enemy();
+
+	private:
+
+	Player * ptr_Player;
+
+	int WalkCount = 0;
+	int x_dist;
+	int y_dist;
+
 };
 

@@ -2,25 +2,28 @@
 #include "Entity.h"
 #include "SFML/Graphics.hpp"
 #include "Projectile.h"
+#include "Wall.h"
 
 #include <iostream>
-#include <thread>
 #include <string>
+#include <vector>
+
 class Player : public Entity
 {
 public:
-	Player();
-
+	Player(std::string n, sf::Texture &t,
+	int textX, int textY, int width, int height, int x, int y);
+	
 	std::string name;
-	int hp = 20;
+	int hp = 200;
 	int atk = 5;
 	float spd = 3;
 	int def = 2;
 	//base cast time for player
 	int cast = 500;
 	//direction of travel
-
-	unsigned int Direction;
+	unsigned short WalkCount = 0;
+	unsigned short SpellCount = 0;
 
 	bool isImmobile = false;
 
@@ -34,6 +37,8 @@ public:
 	*/
 	void update(int dir);
 	void startThread();
+
+	void setIsCollision(bool collision);
 
 	~Player();
 
@@ -56,8 +61,6 @@ protected:
 
 	// up1 left2 down3 right4
 	// counter for sprite anim
-	unsigned short WalkCount = 0;
-	unsigned short SpellCount = 0;
 };
 
 

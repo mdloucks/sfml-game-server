@@ -5,10 +5,10 @@
             "name": "C++ Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/TPC.out",
+            "program": "/media/matt/Datadrive/TPC/TheProgrammersCode",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
+            "cwd": "${/media/matt/Datadrive/TPC/TPC}",
             "environment": [],
             "externalConsole": true,
             "linux": {
@@ -39,7 +39,7 @@
             "name": "C++ Attach",
             "type": "cppdbg",
             "request": "attach",
-            "program": "${workspaceRoot}/TPC.out",
+            "program": "enter program name, for example ${/media/matt/Datadrive/TPC/TPC}/TheProgrammersCode",
             "processId": "${command.pickProcess}",
             "linux": {
                 "MIMode": "gdb",

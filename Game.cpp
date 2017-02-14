@@ -4,34 +4,6 @@ Game::Game()
 {
 }
 
-void Game::createPlayers()
-{
-
-	obj_ImageManagement.loadPlayer();
-
-	obj_EntityInit.initPlayer(
-		obj_Player,
-		"charles",
-		obj_ImageManagement.txt_player,
-		64, 64, 64, 64,
-		0, 0);
-
-	obj_EntityManager.addPlayer(obj_Player);
-
-}
-
-void Game::createEnemies()
-{
-	obj_ImageManagement.loadSkeleton();
-
-	obj_EntityInit.initEnemy(
-		Enemy_Melee_Skeleton,
-		obj_ImageManagement.txt_skeleton,
-		64, 64, 64, 64,
-		Enemy::AI::ENEMY_MELEE,
-		30, 30);
-
-}
 
 void Game::initWin()
 {
@@ -41,27 +13,54 @@ void Game::initWin()
 	std::cout << "creating window" << std::endl;
 }
 
-void Game::startThreads()
-{
-	obj_Player->startThread();
-}
 
-void Game::initPointers()
+int Game::gameLoop()
 {
-	obj_Enemy.initPointers(obj_Player);
-	obj_EntityManager.initPointers(*win, obj_Player);
+	obj_ImageManagement.loadSkeleton(); 
+
+	Enemy Enemy_Melee_Skeleton(obj_ImageManagement.txt_skeleton, 64, 64, 64, 64, 0, 0);
+
+	obj_ImageManagement.loadPlayer();
+	Player obj_Player("charles", obj_ImageManagement.txt_player, 64, 64, 64, 64, 0, 0);
+	obj_EntityManager.addPlayer(obj_Player);
+
+	obj_EntityManager.initPointers(*win);
 	obj_InputManagement.initPointers(&obj_EntityManager);
-}
 
-void Game::gameLoop()
-{
+	// sf::view map_view;
+
+	// win->setView(view);
+
+	// sf::Texture title;
+	// title.loadFromFile("./assets/images/Title.png");
+	// sf::Sprite spr_title(title);
+
+	// sf::Music music;
+    // music.openFromFile("./assets/audio/Dmx - x gon give it to ya + lyrics.ogg");
+	// music.play();
+
+	Wall wall(100,100,64,64);
+
+	obj_EntityManager.addWall(wall);
+
+	sf::UdpSocket socket;
+
+	sf::UdpSocket socket;
+	unsigned short port 6178
+
+	if (socket.bind(54000) != sf::Socket::Done)
+	{
+		std::cout << "binded socket to port " << port << std::endl;
+	}
 
 	FPS_Clock.restart();
+
+	// 192.168.0.167 my ip
 	while (win->isOpen())
 	{	
 		
 		// completely wipe the frame of all images
-		win->clear(sf::Color::Black);
+		win->clear(sf::Color::White);
 
 		sf::Event event;
 		// handles all events that occured since last iteration of the frame eg. mouse clicks
@@ -71,11 +70,21 @@ void Game::gameLoop()
 			if (event.type == sf::Event::Closed)
 			{
 				win->close();
+				return 0;
 			}
 				
 			if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::E)
 			{
+				Enemy_Melee_Skeleton.spd += 0.2;
 				obj_EntityManager.addEnemy(Enemy_Melee_Skeleton);
+			}
+			if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::R)
+			{
+				obj_EntityManager.deleteEnemy(0,1);
+			}
+			if(event.type == sf::Event::Resized)
+			{
+
 			}
 		}
 
@@ -84,6 +93,8 @@ void Game::gameLoop()
 		// {
 		// 	obj_EntityManager.addPP();
 		// }
+
+		obj_EntityManager.updateWall();
 
 		obj_InputManagement.recieveInput();
 		// Update Enemies
@@ -95,16 +106,17 @@ void Game::gameLoop()
 		obj_EntityManager.updatePlayer();
 
 		// Draw Player
-		win->draw(obj_Player->sprite);
+		win->draw(obj_Player.sprite);
+
 		// display the rendered images
 		win->display();
 
 		LPS++;
-		// the clock is offset by 20 microseconds to compensate for inaccurate
+		// the clock is offset by 20 microseconds to compensate for inaccuracy
 		if (FPS_Clock.getElapsedTime().asMicroseconds() > 1999980)
 		{ 
 			FPS = LPS;
-			//std::cout << "/////FPS///// " << FPS << std::endl;
+			std::cout << "/////FPS///// " << FPS << std::endl;
 			FPS_Skip = FPS / 60;
 			LPS = 0;
 			FPS_Clock.restart();

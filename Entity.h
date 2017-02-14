@@ -11,6 +11,9 @@ public:
 	sf::Sprite sprite;
 	sf::Text text;
 
+	int spd;
+	int dir;
+
 	Entity();
 	
 

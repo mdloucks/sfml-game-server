@@ -1,14 +1,11 @@
 #include "Game.h"
-
+#include <iostream>
 
 int main()
 {
 	// initialize the game loop
 	Game g;
-	g.initPointers();
+	
 	g.initWin();
-	g.createPlayers();
-	g.createEnemies();
-	g.startThreads();
-	g.gameLoop();
+	std::cout << "Game closed with exit code: " << g.gameLoop() << std::endl;
 }

@@ -1,19 +1,22 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+
 #include "ImageManagement.h"
 #include "Entity.h"
 #include "Player.h"
 #include "Projectile.h"
 #include "Enemy.h"
 #include "EntityManager.h"
-#include "EntityInit.h"
-#include "MeleeAI.h"
 #include "InputManagement.h"
+#include "Wall.h"
 
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 
 /*
@@ -36,30 +39,25 @@ public:
 	int FPS;
 	float FPS_Skip;
 
-	const int winWidth = 800;
-	const int winHeight = 500;
+	int winWidth = 800;
+	int winHeight = 500;
 
+	sf::IpAddress ip_host = sf::IpAddress::getLocalAddress();
+	
+	unsigned short port = 7000;
 
 	//window allocated on the heap
 	sf::RenderWindow *win = new sf::RenderWindow;
 	
 	ImageManagement obj_ImageManagement;
-	Player *obj_Player = new Player;
-	EntityInit obj_EntityInit;
-	Enemy obj_Enemy;
+
 	EntityManager obj_EntityManager;
-	MeleeAI AI_Melee;
 	InputManagement obj_InputManagement;
 
-	Enemy *Enemy_Melee_Skeleton = & AI_Melee;
 
 	//window func
 	void initWin();
-	void startThreads();
-	void initPointers();
-	void gameLoop();
-	void createPlayers();
-	void createEnemies();
+	int gameLoop();
 	//graphics func
 
 	~Game();
