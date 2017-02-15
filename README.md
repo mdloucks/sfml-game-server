@@ -19,8 +19,25 @@ To compile on windows/mac in various IDE's, go and check out the sfml documentat
  </br> http://www.sfml-dev.org/tutorials/2.4/start-cb.php
 
 
-This alternative may work for some of you that have g++-4.8 installed or
-for all of the poor unfortunate souls using linux... (including me...grumble)
+This alternative may work for some of you that are expiriencing difficulties or
+all of the poor unfortunate souls using linux... (including me...grumble)
+
+----------------------------
+
+I've included a make file which will both compile and run the game.
+
+On linux you can run this by first giving permissions,
+
+`chmod +x make.sh`
+
+then run it!
+
+`./make.sh`
+
+----------------------------
+
+
+
 
 --------------
 
