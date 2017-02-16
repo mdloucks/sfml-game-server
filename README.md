@@ -2,7 +2,7 @@
 
 This is the server portion which will actually host and run the game.
 
-If you'd like to see what cool graphics the end user will see, heres the link.
+If you'd like to see what cool (jk) graphics the end user will see, heres the link.
  </br> https://github.com/BroManSalaam/sfml-game-client
 
 Care to run this? There is a pre-compiled executable in the project
@@ -20,23 +20,27 @@ If you'd like to compile on windows/mac in various IDE's, go and check out the s
 
 If you'd prefer not to install any IDE's, I've included a make file which will both compile and run the game.
 
+===========================================================================================
+
 <b>linux</b>
 
-you can run this by first giving permissions,
+you can run this by first giving permissions, </br>
 `chmod +x make.sh`
 
-then run it!
+then run it! </br>
 `./make.sh`
 
 <b>Mac OS</b>
 
-Open a terminal and enter the following
-`sh` 
-Followed by the directory to your file, or just drag and drop the file into the terminal.
+Open a terminal and enter the following </br>
+`sh`  </br>
+Followed by the directory to your file, or just drag and drop the file into the terminal. </br>
 
-<b>Windows</b>
+<b>Windows</b> <br/>
 make a .bat file and copy & paste the contents of make.sh into it.
 Run it!
+
+===========================================================================================
 
 To make this an even awesomer game, I could use some help with artwork, programming, and sound.
 send me an email at loucks12345@gmail.com if you're interested in joining!
