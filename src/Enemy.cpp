@@ -1,10 +1,7 @@
 #include "Enemy.h"
 
-Enemy::Enemy(sf::Texture &t,
-int textX, int textY, int width, int height, int x, int y)
+Enemy::Enemy(int width, int height, int x, int y)
 {
-	sprite.setTexture(t);
-	sprite.setTextureRect(sf::IntRect(textX, textY, width, height));
 	rect.setSize(sf::Vector2f(width, height));
 	rect.setPosition(x, y);
 
@@ -29,9 +26,6 @@ void Enemy::enemyAI()
 		
 		//attack();
 	}
-
-		std::string s = std::to_string(std::sqrt(std::pow(x_dist,2) - std::pow(y_dist,2)));
-		text.setString(s);
 
 		if (std::abs(x_dist) <= std::abs(y_dist) && 
 			ptr_Player->rect.getPosition().y <= rect.getPosition().y && isAggro) 
@@ -128,15 +122,10 @@ void Enemy::update()
 	rect.getPosition().x - atk_range.getRadius(),
 	rect.getPosition().y - atk_range.getRadius()
 	);
-
-	text.setPosition(rect.getPosition());
-
-	sprite.setPosition(rect.getPosition());
 }
 
 void Enemy::attack()
 {
-	ptr_Player->hp -= atk;
 }
 
 Enemy::~Enemy()

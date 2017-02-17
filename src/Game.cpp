@@ -5,55 +5,37 @@ Game::Game()
 }
 
 
-void Game::initWin()
-{
-	win->create(sf::VideoMode(winWidth,winHeight),"TPC");
-	win->setActive();
-	win->setFramerateLimit(60);
-	std::cout << "creating window" << std::endl;
-}
-
-
 int Game::gameLoop()
 {
 
-	obj_EntityManager.initPointers(*win);
+	sf::UdpSocket socket;
 
-	// create a array of input managers for all of the players
-	InputManager Player_Input[9];
+	if(socket.bind(host_port) != sf::Socket::Done)
+	{
+		std::cout << "could not bind to port " << host_port << std::endl << "Kill any processes that are occupying that port" << std::endl;
+		return 1;
+	}
 
+	// wait for all clients to respond...
 
-	Wall wall(100,100,64,64);
+	std::vector<Player> client;
+	std::vector<Player>::const_iterator client_it;
 
-	obj_EntityManager.addWall(wall);
+	unsigned short clients;
 
-	// 192.168.0.167 my ip
-	while (win->isOpen())
-	{	
-		
-		// completely wipe the frame of all images
-		win->clear(sf::Color::White);
-
-		sf::Event event;
-		// handles all events that occured since last iteration of the frame eg. mouse clicks
-		while (win->pollEvent(event))
+	while(clients < 10)
+	{
+		for(client_it = client.begin(); client_it != client.end(); client_it++)
 		{
-
-			if (event.type == sf::Event::Closed)
-			{
-				win->close();
-				return 0;
-			}
-				
-			if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::R)
-			{
-				obj_EntityManager.deleteEnemy(0,1);
-			}
-			if(event.type == sf::Event::Resized)
-			{
-
-			}
+			// if (socket.receive(data, 100, received, sender, port) != sf::Socket::Done)
+			// {
+    
+			// }
 		}
+	}
+
+	while (true)
+	{	
 
 		obj_EntityManager.updateWall();
 
@@ -64,12 +46,15 @@ int Game::gameLoop()
 		//obj_EntityManager.updatePP();
 
 		obj_EntityManager.updatePlayer();
-
-		// display the rendered images
-		win->display();
-
+		return 0;
 	}
 }
+
+// sf::Packet& operator >>(sf::Packet& packet, Player &player)
+// {
+//     return packet >> player.ip >> player.port >> player.hp >> player.spd. >> player. def >> player.atk 
+// }
+
 
 Game::~Game()
 {

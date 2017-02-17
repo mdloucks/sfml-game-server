@@ -9,7 +9,6 @@
 #include "Projectile.h"
 #include "Enemy.h"
 #include "EntityManager.h"
-#include "InputManager.h"
 #include "Wall.h"
 
 #include <vector>
@@ -30,21 +29,13 @@ public:
 	// initialize any images we need
 	Game();
 
-	int winWidth = 800;
-	int winHeight = 500;
-
-	sf::IpAddress ip_host = sf::IpAddress::getLocalAddress();
-
-	//window allocated on the heap
-	sf::RenderWindow *win = new sf::RenderWindow;
-	
+	sf::IpAddress host_ip = sf::IpAddress::getLocalAddress();
+	unsigned short host_port = sf::UdpSocket::AnyPort;
 
 	EntityManager obj_EntityManager;
 
-	//window func
-	void initWin();
 	int gameLoop();
-	//graphics func
+	sf::Packet& operator >>(sf::Packet& packet, Player &player);
 
 	~Game();
 

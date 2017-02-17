@@ -11,8 +11,7 @@ This will house basic stats and functions that all enemies will use
 class Enemy : public Entity
 {
 public:
-	Enemy(sf::Texture &t,
-	int textX, int textY, int width, int height, int x, int y);
+	Enemy(int width, int height, int x, int y);
 
 	
 	// 1up 2left 3down 4right

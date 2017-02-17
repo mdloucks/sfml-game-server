@@ -19,8 +19,6 @@ class EntityManager
 public:
 	//this takes parameters to the pointers in game
 	EntityManager();
-	
-	void initPointers(sf::RenderWindow &w);
 
 	//////////////////// PROJECTILE
 
@@ -71,7 +69,7 @@ public:
 	calls the move() function in the projectile class, which moves the projectiles
 	based on the direction the player is facing
 	*/
-	void movePlayer(int dir);
+	void movePlayer();
 
 	/*
 	this method loops through the contents of the vector and calls the 
@@ -91,8 +89,6 @@ public:
 	~EntityManager();
 
 private:
-
-	sf::RenderWindow *win;
 
 	// Pointer to the player object in game.cpp
 	Player *obj_Player;

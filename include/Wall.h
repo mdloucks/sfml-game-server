@@ -16,12 +16,8 @@ class Wall  :  Entity {
 
     Wall(int x, int y , int width, int height);
 
-    short width;
-    short height;
-
-    void repel(Entity *ent);
-
-    void repel(Entity ent);
+    int width;
+    int height;
 
     ~Wall();
 

@@ -4,46 +4,6 @@ EntityManager::EntityManager()
 {
 }
 
-void EntityManager::initPointers(sf::RenderWindow & w)
-{
-	win = &w;
-}
-
-
-/////////// PROJECTILES /////////////////
-
-// void EntityManager::addPP()
-// {
-// 	obj_Projectile.rect.setPosition(obj_Player->rect.getPosition().x + obj_Player->rect.getSize().x / 2
-// 	- obj_Projectile.rect.getSize().x / 2, obj_Player->rect.getPosition().y + obj_Player->rect.getSize().y / 2);
-
-// 	obj_Projectile.Direction = obj_Player->Direction;
-// 	PP_Vector.push_back(obj_Projectile);
-// }
-
-// void EntityManager::movePP()
-// {
-// 	PP_Vector[PP_count].move();
-// }
-
-// void EntityManager::drawPP()
-// {
-// 	win->draw(PP_Vector[PP_count].rect);
-// }
-
-// void EntityManager::updatePP()
-// {
-// 	PP_count = 0;
-// 	for (PP_Iterator = PP_Vector.begin(); PP_Iterator != PP_Vector.end(); PP_Iterator++)
-// 	{
-// 		movePP();
-// 		drawPP();
-// 		PP_count++;
-// 	}
-// }
-
-//////////// ENEMIES //////////////
-
 void EntityManager::addEnemy(Enemy e)
 {
 	count = 0;
@@ -54,16 +14,6 @@ void EntityManager::addEnemy(Enemy e)
 		e.initPointers(Player_Vector[count]);
 		e.Aggro_Radius.setRadius(200);
 		e.atk_range.setRadius(40);
-		e.Aggro_Radius.setFillColor(sf::Color::Blue);
-		e.atk_range.setFillColor(sf::Color::Red);
-
-		if (!font.loadFromFile("./assets/fonts/coolvetica rg.ttf"))
-		{
-			std::cout << "cant load font" << std::endl;
-		}
-		e.text.setFont(font);
-		e.text.setCharacterSize(14);
-		e.text.setFillColor(sf::Color::Black);
 
 		count++;
 	}
@@ -108,9 +58,9 @@ void EntityManager::addPlayer(Player p)
 	std::cout << p.name << " has joined the game!" << std::endl;
 }
 
-void EntityManager::movePlayer(int dir)
+void EntityManager::movePlayer()
 {
-	Player_Vector[0].update(dir);
+	Player_Vector[Player_count].update();
 }
 
 void EntityManager::updatePlayer()
@@ -136,7 +86,6 @@ bool EntityManager::isIntersectsWall(Entity ent)
 	{
 			if(ent.rect.getGlobalBounds().intersects(Wall_Vector[Wall_count].rect.getGlobalBounds())) // Collision detected!!!
 			{
-				Wall_Vector[Wall_count].repel(ent);
 			}
 			else
 			{
