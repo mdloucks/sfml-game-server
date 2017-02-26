@@ -64,7 +64,7 @@ public:
 
 	//////////////////// PLAYER 
 
-	void addPlayer(Player p);
+	//void addPlayer(Player &p);
 	/*
 	calls the move() function in the projectile class, which moves the projectiles
 	based on the direction the player is facing

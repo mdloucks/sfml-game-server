@@ -1,15 +1,14 @@
-#include "Game.h"
+#include "Server.h"
 #include <iostream>
 
 int main()
 {
 	// initialize the game loop
-	// save the outcome in a short
-	Game g;
-	unsigned short outcome = g.gameLoop();
+	// save the game in a short
 
-	if(outcome == 0)
-	{
-		std::cout << "Game closed with exit code: " << outcome << std::endl;
-	}
+	Server s;
+	int code = s.run();
+
+	std::cout << "Server : Shut down with exit code" << code << std::endl; 
+
 }

@@ -1,0 +1,99 @@
+In file included from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/string:41,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from ./lib/SFML-2.4.1/include/SFML/System/Err.hpp:32,
+                 from ./lib/SFML-2.4.1/include/SFML/System.hpp:34,
+                 from ./lib/SFML-2.4.1/include/SFML/Window.hpp:32,
+                 from ./lib/SFML-2.4.1/include/SFML/Graphics.hpp:32,
+                 from ./include/Player.h:3,
+                 from ./include/EntityManager.h:2,
+                 from src/EntityManager.cpp:1:
+                 
+                 /usr/include/c++/4.8/ext/new_allocator.h: In instantiation of ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = Player; _Args =
+ {const Player&}; _Tp = Player]’:
+/usr/include/c++/4.8/bits/alloc_traits.h:254:4:   required from ‘static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Arg
+s>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Player; _Args = {const Player&}; _Alloc = std::a
+llocator<Player>; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]’
+/usr/include/c++/4.8/bits/alloc_traits.h:393:57:   required from ‘static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct
+::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Player; _Args = {const Player&}; _Alloc = std::allocator<Pl
+ayer>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]’
+/usr/include/c++/4.8/bits/stl_vector.h:906:34:   required from ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = Player; _Alloc = st
+d::allocator<Player>; std::vector<_Tp, _Alloc>::value_type = Player]’
+src/EntityManager.cpp:57:27:   required from here
+/usr/include/c++/4.8/ext/new_allocator.h:120:4: error: use of deleted function ‘Player::Player(const Player&)’
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+  
+  
+  In file included from ./include/EntityManager.h:2:0,
+                 from src/EntityManager.cpp:1:
+./include/Player.h:18:7: note: ‘Player::Player(const Player&)’ is implicitly deleted because the default definition would be ill-formed:
+ class Player : public Entity, public Client
+       ^
+./include/Player.h:18:7: error: use of deleted function ‘Client::Client(const Client&)’
+In file included from ./include/Player.h:9:0,
+                 from ./include/EntityManager.h:2,
+                 from src/EntityManager.cpp:1:
+./include/Client.h:9:7: note: ‘Client::Client(const Client&)’ is implicitly deleted because the default definition would be ill-formed:
+ class Client {
+       ^
+./include/Client.h:9:7: error: use of deleted function ‘sf::UdpSocket::UdpSocket(const sf::UdpSocket&)’
+In file included from ./lib/SFML-2.4.1/include/SFML/Network.hpp:42:0,
+                 from ./include/Player.h:4,
+                 from ./include/EntityManager.h:2,
+                 from src/EntityManager.cpp:1:
+./lib/SFML-2.4.1/include/SFML/Network/UdpSocket.hpp:45:24: note: ‘sf::UdpSocket::UdpSocket(const sf::UdpSocket&)’ is implicitly deleted because the default
+ definition would be ill-formed:
+ class SFML_NETWORK_API UdpSocket : public Socket
+ 
+ 
+ ./lib/SFML-2.4.1/include/SFML/Network/UdpSocket.hpp:45:24: error: use of deleted function ‘sf::Socket::Socket(const sf::Socket&)’
+In file included from ./lib/SFML-2.4.1/include/SFML/Network/TcpSocket.hpp:32:0,
+                 from ./lib/SFML-2.4.1/include/SFML/Network/Ftp.hpp:32,
+                 from ./lib/SFML-2.4.1/include/SFML/Network.hpp:33,
+                 from ./include/Player.h:4,
+                 from ./include/EntityManager.h:2,
+                 from src/EntityManager.cpp:1:
+./lib/SFML-2.4.1/include/SFML/Network/Socket.hpp:45:24: note: ‘sf::Socket::Socket(const sf::Socket&)’ is implicitly deleted because the default definition
+would be ill-formed:
+ class SFML_NETWORK_API Socket : NonCopyable
+                        ^
+In file included from ./lib/SFML-2.4.1/include/SFML/System/FileInputStream.hpp:34:0,
+                 from ./lib/SFML-2.4.1/include/SFML/System.hpp:35,
+                 from ./lib/SFML-2.4.1/include/SFML/Window.hpp:32,
+                 from ./lib/SFML-2.4.1/include/SFML/Graphics.hpp:32,
+                 from ./include/Player.h:3,
+                 from ./include/EntityManager.h:2,
+                 from src/EntityManager.cpp:1:
+./lib/SFML-2.4.1/include/SFML/System/NonCopyable.hpp:67:5: error: ‘sf::NonCopyable::NonCopyable(const sf::NonCopyable&)’ is private
+     NonCopyable(const NonCopyable&);
+     
+     
+     In file included from ./lib/SFML-2.4.1/include/SFML/Network/TcpSocket.hpp:32:0,
+                 from ./lib/SFML-2.4.1/include/SFML/Network/Ftp.hpp:32,
+                 from ./lib/SFML-2.4.1/include/SFML/Network.hpp:33,
+                 from ./include/Player.h:4,
+                 from ./include/EntityManager.h:2,
+                 from src/EntityManager.cpp:1:
+./lib/SFML-2.4.1/include/SFML/Network/Socket.hpp:45:24: error: within this context
+ class SFML_NETWORK_API Socket : NonCopyable
+                        ^
+In file included from /usr/include/c++/4.8/bits/stl_tempbuf.h:60:0,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:62,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from ./lib/SFML-2.4.1/include/SFML/System/Utf.hpp:32,
+                 from ./lib/SFML-2.4.1/include/SFML/System/String.hpp:32,
+                 from ./lib/SFML-2.4.1/include/SFML/System.hpp:42,
+                 from ./lib/SFML-2.4.1/include/SFML/Window.hpp:32,
+                 from ./lib/SFML-2.4.1/include/SFML/Graphics.hpp:32,
+                 from ./include/Player.h:3,
+                 from ./include/EntityManager.h:2,
+                 from src/EntityManager.cpp:1:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of ‘void std::_Construct(_T1*, _Args&& ...) [with _T1 = Player; _Args = {Player}]’:
+/usr/include/c++/4.8/bits/stl_uninitialized.h:75:53:   required from ‘static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(
+_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<Player*>; _ForwardIterator = Player*; bool _TrivialValueTypes =
+ false]’
+                        ^

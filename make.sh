@@ -6,7 +6,7 @@ support=$(dpkg -s g++-4.8)
 build=./build
 doc=./doc
 include=./include
-lib=./lib
+lib=./lib/SFML-2.4.1
 src=./src
 
 if [ ! -d "$build" ];
@@ -55,10 +55,11 @@ if [ ! -d "$lib" ]
 
 	then
 	
-	echo 'You are missing the lib folder'
-	echo 'You will need to reinstall'
-	exit 1
+	echo 'You are missing dependencies'
+	echo 'Cannot run, missing SFML-2.4.1...'
+	echo 'exiting...'
 	
+	exit 1
 
 fi
 
@@ -92,11 +93,8 @@ fi
 
 fi
 
-g++-4.8 src/*.cpp -o ./build/sfml-game -std=c++11 -pthread -I./include -I./lib/SFML-2.4.1/include -L ./lib/SFML-2.4.1/lib -lsfml-network -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
+g++-4.8 src/*.cpp -o ./build/sfml-game -std=c++11 -I ./include -I ./lib/SFML-2.4.1/include -L ./lib/SFML-2.4.1/lib -lsfml-network -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
 
 echo "compilation complete"
 
-export LD_LIBRARY_PATH=./lib/SFML-2.4.1/lib && ./build/sfml-game > ./bin/
-
-echo "Program running"
-
+export LD_LIBRARY_PATH=./lib/SFML-2.4.1/lib && ./build/sfml-game

@@ -10,9 +10,15 @@ class Client {
 
         public:
 
-        std::string name;
+        Client();
 
+        sf::IpAddress getIp();
+        unsigned short getPort();
+        std::string getName();
+
+        std::string name;
         sf::IpAddress ip;
 	unsigned short port;
+        bool isConnected;
 
 };

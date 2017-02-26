@@ -10,11 +10,12 @@
 #include "Enemy.h"
 #include "EntityManager.h"
 #include "Wall.h"
+#include "Server.h"
 
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cstdlib>
+#include <thread>
 
 
 /*
@@ -22,24 +23,16 @@ MAIN CLASS
 
 Make an object of this class and run game gameLoop to start the game
 */
-class Game
+class Game : public Server
 {
 public:
 
-	// initialize any images we need
 	Game();
 
-	sf::IpAddress host_ip = sf::IpAddress::getLocalAddress();
-	unsigned short host_port = sf::UdpSocket::AnyPort;
-
-	EntityManager obj_EntityManager;
-
 	int gameLoop();
-	sf::Packet& operator >>(sf::Packet& packet, Player &player);
 
 	~Game();
 
 private:
 
 };
-

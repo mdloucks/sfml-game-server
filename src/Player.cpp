@@ -1,7 +1,12 @@
 #include "Player.h"
 
-void Player::init(std::string n, int width, int height, int x, int y) 
+Player::Player()
 {
+}
+
+void Player::init(std::string n, std::string h, int width, int height, int x, int y) 
+{
+	hero = h;
 	name = n;
 	rect.setSize(sf::Vector2f(width, height));
 	rect.setPosition(x, y);

@@ -1,0 +1,50 @@
+///////////////////////////////////
+This document is full of helpful referances
+to aid in the development of the sfml-game
+///////////////////////////////////
+
+			General
+====================================
+https://github.com/SFML/SFML/wiki/Sources
+
+
+
+        sfml compilation
+====================================
+
+https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html
+
+https://gcc.gnu.org/onlinedocs/gcc/Link-Options.html
+
+
+
+            Artwork
+====================================
+
+http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/#?body=tanned&=shoes_black&legs=pants_teal&clothe=longsleeve_white&mail=none&jacket=none&tie=on&hair=plain_raven&spikes=none&shoes=maroon
+
+
+
+            Networking
+====================================
+http://gafferongames.com/networking-for-game-programmers/
+
+http://trac.bookofhook.com/bookofhook/trac.cgi/wiki/IntroductionToMultiplayerGameProgramming
+
+http://gabrielgambetta.com/fpm2.html
+
+
+
+			Graphics
+====================================
+https://github.com/SFML/SFML/wiki/Tutorial%3A-Using-View
+
+https://github.com/SFML/SFML/wiki/Tutorial%3A-Drawable-Group
+
+
+
+			Logic
+====================================
+https://github.com/SFML/SFML/wiki/Source%3A-Simple-Collision-Detection
+
+

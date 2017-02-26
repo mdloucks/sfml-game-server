@@ -11,7 +11,7 @@ void EntityManager::addEnemy(Enemy e)
 	// assign pointers to every play for each enemy
 	for(Player_Iterator = Player_Vector.begin(); Player_Iterator != Player_Vector.end(); Player_Iterator++)
 	{
-		e.initPointers(Player_Vector[count]);
+		//e.initPointers(Player_Vector[count]);
 		e.Aggro_Radius.setRadius(200);
 		e.atk_range.setRadius(40);
 
@@ -51,12 +51,12 @@ void EntityManager::deleteEnemy(int a, int b)
 	std::cout << "There are now " << Enemy_Vector.size() << " Enemies." << std::endl;
 }
 
-
-void EntityManager::addPlayer(Player p)
-{
-	Player_Vector.push_back(p);
-	std::cout << p.name << " has joined the game!" << std::endl;
-}
+// needs pointers
+// void EntityManager::addPlayer(Player &p)
+// {
+// 	Player_Vector.push_back(p);
+// 	std::cout << p.getName() << " has joined the game!" << std::endl;
+// }
 
 void EntityManager::movePlayer()
 {

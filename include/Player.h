@@ -19,10 +19,11 @@ class Player : public Entity, public Client
 {
 public:
 	
+	Player();
+	// where the player clicks
 	sf::Vector2f click;
 
-	enum Hero { KNIGHT };
-	Hero CURRENT_HERO;
+	std::string hero;
 
 	bool isImmobile = false;
 
@@ -30,7 +31,7 @@ public:
 	void printInfo(Player p);
 	// derived classes may ovveride
 	virtual void update();
-	void init(std::string n, int width, int height, int x, int y);
+	void init(std::string n, std::string h, int width, int height, int x, int y);
 	void setIsCollision(bool collision);
 
 	~Player();

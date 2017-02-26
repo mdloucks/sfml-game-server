@@ -1,0 +1,49 @@
+///////////////////////////////////
+This document is full of helpful instructions
+to aid in the development of the sfml-game
+///////////////////////////////////
+
+
+        sfml compilation
+====================================
+
+g++ modifiers
+
+    -c: compile into object file "Hello.o". By default, the object file has the same name as the source file with extension of ".o"(there is no need to specify -o option). No linking with other object file or library.
+    
+    -o: specifies the output executable filename.
+    
+    -g: generates additional symbolic debuggging information for use with gdb debugger.
+    
+    The include-paths are specified via -I dir option (or environment variable CPATH)
+    
+    The library-path is specified via -Ldir option (uppercase 'L' followed by the directory path) 
+    (or environment variable LIBRARY_PATH)
+    
+    -Wall: prints "all" warning messages.
+    
+///////////////////////////////////////////
+    
+To compile faster, you can individually compile each src file into object files.
+and then link all of the object files together later
+    
+    > g++ -c file1.cpp
+    > g++ -c file2.cpp
+    > g++ -o myprog.exe file1.o file2.o
+
+//////////////////////////////////////////compile
+
+g++-4.8 main.cpp Game.cpp Player.cpp Wall.cpp EntityManager.cpp Enemy.cpp Entity.cpp InputManager.cpp Projectile.cpp -o ./build/sfm-game -std=c++11 -pthread -I ./lib/SFML-2.4.1/include -L ./lib/SFML-2.4.1/lib -lsfml-network -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
+
+export LD_LIBRARY_PATH=./lib/SFML-2.4.1/lib && ./build/sfml-game
+
+
+            Artwork
+====================================
+
+
+            Networking
+====================================
+
+
+
